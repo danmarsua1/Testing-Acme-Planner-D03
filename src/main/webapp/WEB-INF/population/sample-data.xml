@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+- sample-data.xml
+-
+- Copyright (C) 2012-2021 Rafael Corchuelo.
+-
+- In keeping with the traditional purpose of furthering education and research, it is
+- the policy of the copyright owner to permit non-commercial use and redistribution of
+- this software. It has been tested carefully, but it is not guaranteed for any particular
+- purposes.  The copyright owner does not offer any warranties or representations, nor do
+- they accept any liabilities with respect to them.
+-->
+
+<beans 
+	xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<import resource="classpath:/WEB-INF/population/conversion-service.xml"/>	
+	
+	<!-- MANAGERS -->
+	
+	<bean name="manager1UserAccount" class="acme.framework.entities.UserAccount">
+		<property name="username" value="manager1" />
+		<property name="password" value="manager1" />
+		<property name="enabled" value="true" />
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property name="name" value="Manager 1" />
+				<property name="surname" value="One" />
+				<property name="email" value="manager1@acme.com" />
+			</bean>
+		</property>
+		<property name="roles">
+			<list>
+				<ref bean="manager1Manager" />
+				<ref bean="manager1Authenticated" />
+			</list>
+		</property>
+	</bean>
+
+	<bean name="manager1Manager" class="acme.entities.roles.Usermanager">
+		<property name="userAccount" ref="manager1UserAccount" />
+		<property name="tasks">
+			<list>
+				<ref bean="task04" />
+			</list>
+		</property>
+	</bean>
+
+	<bean name="manager1Authenticated" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" ref="manager1UserAccount" />
+	</bean>
+	
+	<bean name="manager2UserAccount" class="acme.framework.entities.UserAccount">
+		<property name="username" value="manager2" />
+		<property name="password" value="manager2" />
+		<property name="enabled" value="true" />
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property name="name" value="Manager 2" />
+				<property name="surname" value="Two" />
+				<property name="email" value="manager2@acme.com" />
+			</bean>
+		</property>
+		<property name="roles">
+			<list>
+				<ref bean="manager2Manager" />
+				<ref bean="manager2Authenticated" />
+			</list>
+		</property>
+	</bean>
+
+	<bean name="manager2Manager" class="acme.entities.roles.Usermanager">
+		<property name="userAccount" ref="manager2UserAccount" />
+		<property name="tasks">
+			<list>
+				<ref bean="task05" />
+			</list>
+		</property>
+	</bean>
+
+	<bean name="manager2Authenticated" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" ref="manager2UserAccount" />
+	</bean>
+	
+	<!-- SHOUTS -->
+	
+	<bean id="shout01" class="acme.entities.shouts.Shout">
+	<property name="moment" value="2021/05/04 14:16"></property>
+	<property name="author" value="Joan Martínez"></property>
+	<property name="text" value="Y ahora a estudiar para los exámenes finales. Que pereza..."></property>
+	</bean>
+	
+	<bean id="shout02" class="acme.entities.shouts.Shout">
+	<property name="moment" value="2021/05/03 18:25"></property>
+	<property name="author" value="Juan Manuel Tello"></property>
+	<property name="text" value="¡Arriba España!"></property>
+	<property name="info" value="http://www.example.com"></property>
+	</bean>
+	
+	<bean id="shout03" class="acme.entities.shouts.Shout">
+	<property name="moment" value="2021/05/02 20:03"></property>
+	<property name="author" value="Isaac Marcos"></property>
+	<property name="text" value="Felíz día de Andalucía"></property>
+	<property name="info" value="http://www.info-link.com"></property>
+	</bean>
+	
+	<bean id="shout04" class="acme.entities.shouts.Shout">
+	<property name="moment" value="2021/04/01 23:03"></property>
+	<property name="author" value="Maria Elisa Ferrer"></property>
+	<property name="text" value="A este paso, la pandemia no va a acabar nunca..."></property>
+	</bean>
+	
+	<!-- TASKS -->
+	
+	<bean id="task01" class="acme.entities.tasks.Task">
+	<property name="title" value="Task 01"></property>
+	<property name="executionStart" value="2021/05/10 09:30"></property>
+	<property name="executionEnd" value="2021/05/15 13:15"></property>
+	<property name="description" value="First task"></property>
+	<property name="isPrivate" value="false"/>
+	</bean>
+	
+	<bean id="task02" class="acme.entities.tasks.Task">
+	<property name="title" value="Task 02"></property>
+	<property name="executionStart" value="2021/05/10 09:30"></property>
+	<property name="executionEnd" value="2021/05/21 17:15"></property>
+	<property name="description" value="Second task"></property>
+	<property name="isPrivate" value="false"/>
+	</bean>
+	
+	<bean id="task03" class="acme.entities.tasks.Task">
+	<property name="title" value="Task 03"></property>
+	<property name="executionStart" value="2021/05/10 14:30"></property>
+	<property name="executionEnd" value="2021/05/25 20:45"></property>
+	<property name="description" value="Third task"></property>
+	<property name="isPrivate" value="false"/>
+	</bean>
+	
+	<bean id="task04" class="acme.entities.tasks.Task">
+	<property name="title" value="Task 04"></property>
+	<property name="executionStart" value="2021/05/12 14:05"></property>
+	<property name="executionEnd" value="2021/05/13 19:05"></property>
+	<property name="description" value="Forth task"></property>
+	<property name="isPrivate" value="true"/>
+	</bean>
+	
+	<bean id="task05" class="acme.entities.tasks.Task">
+	<property name="title" value="Task 05"></property>
+	<property name="executionStart" value="2021/05/13 17:15"></property>
+	<property name="executionEnd" value="2021/05/16 19:15"></property>
+	<property name="description" value="Fifth task"></property>
+	<property name="isPrivate" value="true"/>
+	</bean>
+	
+	<bean id="task06" class="acme.entities.tasks.Task">
+	<property name="title" value="Task 06"></property>
+	<property name="executionStart" value="2021/05/10 01:00"></property>
+	<property name="executionEnd" value="2021/05/22 21:00"></property>
+	<property name="description" value="Sixth task"></property>
+	<property name="isPrivate" value="false"/>
+	</bean>
+	
+	<!-- CUSTOMISATION -->
+	
+	<bean id="Customisation" class="acme.entities.customisations.Customisation">
+		<property name="spamwords" value="sex,hard core,viagra,cialis,nigeria,you've won,million dollar,sexo,duro,has ganado,millon de dolares"/>
+		<property name="threshold" value="10.0"/>
+	</bean>
+
+</beans>

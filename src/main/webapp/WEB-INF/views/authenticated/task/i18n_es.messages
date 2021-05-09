@@ -1,0 +1,27 @@
+# i18n_es.messages
+#
+# Copyright (C) 2012-2021 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+authenticated.task.form.label.executionStart	= Inicio
+authenticated.task.form.label.executionEnd 		= Fin
+authenticated.task.form.label.workLoad			= Carga
+authenticated.task.form.label.title				= Título
+authenticated.task.form.label.description		= Descripción
+authenticated.task.form.label.link				= Link
+
+authenticated.task.list.label.executionStart	= Inicio
+authenticated.task.list.label.executionEnd 		= Fin
+authenticated.task.list.label.workLoad			= Carga
+authenticated.task.list.label.title				= Título
+
+authenticated.task.form.button.create = Crear
+authenticated.task.form.button.return = Volver
+
+task.error.executionStart = La fecha de inicio de la tarea debe ser en futuro
+task.error.executionEnd = La fecha de fin de la tarea debe ser en futuro
