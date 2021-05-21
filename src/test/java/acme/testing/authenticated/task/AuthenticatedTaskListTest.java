@@ -1,5 +1,10 @@
 package acme.testing.authenticated.task;
 
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
+
 import acme.testing.AcmePlannerTest;
 
 public class AuthenticatedTaskListTest extends AcmePlannerTest {
@@ -8,7 +13,7 @@ public class AuthenticatedTaskListTest extends AcmePlannerTest {
 	
 	// Test cases ---------------------------------------
 	
-	/*@DisplayName("List the public tasks that are finished")
+	@DisplayName("List the public tasks that are finished")
 	@ParameterizedTest
 	@CsvFileSource(resources = "/authenticated/task/list.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(40)
@@ -35,6 +40,6 @@ public class AuthenticatedTaskListTest extends AcmePlannerTest {
 		
 		super.signOut();
 		
-	}*/
+	}
 
 }

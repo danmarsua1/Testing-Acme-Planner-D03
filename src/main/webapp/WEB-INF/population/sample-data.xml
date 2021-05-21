@@ -175,17 +175,17 @@
 	
 	<bean id="task06" class="acme.entities.tasks.Task">
 	<property name="title" value="Task 06"></property>
-	<property name="executionStart" value="2021/06/22 11:00"></property>
-	<property name="executionEnd" value="2021/06/22 14:00"></property>
+	<property name="executionStart" value="2021/05/15 11:00"></property>
+	<property name="executionEnd" value="2021/09/26 14:00"></property>
 	<property name="description" value="Sixth task"></property>
 	<property name="isPrivate" value="false"/>
 	</bean>
 	
 	<bean id="task07" class="acme.entities.tasks.Task">
 	<property name="title" value="Task 07"></property>
-	<property name="executionStart" value="2021/06/26 19:00"></property>
-	<property name="executionEnd" value="2021/06/26 21:00"></property>
-	<property name="description" value="Sixth task"></property>
+	<property name="executionStart" value="2021/05/21 16:00"></property>
+	<property name="executionEnd" value="2021/08/26 21:00"></property>
+	<property name="description" value="Seventh task"></property>
 	<property name="isPrivate" value="false"/>
 	</bean>
 	
