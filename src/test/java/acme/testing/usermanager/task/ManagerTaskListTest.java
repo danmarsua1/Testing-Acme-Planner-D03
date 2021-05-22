@@ -1,29 +1,34 @@
-package acme.testing.anonymous.task;
+package acme.testing.usermanager.task;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
 import acme.testing.AcmePlannerTest;
 
-public class AnonymousTaskListTest extends AcmePlannerTest {
+public class ManagerTaskListTest extends AcmePlannerTest {
 	
 	// Lifeycle management ------------------------------
 	
 	// Test cases ---------------------------------------
 	
 	/*
-	 * @Feature: Anonymous can list the public tasks that are non-finished
+	 * @Feature: Manager can list his/her tasks
 	 * @Violated constraints: None
-	 * @Results: List public tasks that are non-finished
+	 * @Results: List his/her tasks
 	 */
 	
+	@DisplayName("Manager can list his/her tasks")
 	@ParameterizedTest
-	@CsvFileSource(resources = "/anonymous/task/list.csv", encoding = "utf-8", numLinesToSkip = 1)
-	@Order(30)
+	@CsvFileSource(resources = "/usermanager/task/list.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@Order(60)
 	public void list(final int recordIndex, final String executionStart, final String executionEnd,
-		final String workLoad, final String title, final String description, final String link) {		
-		super.clickOnMenu("Anonymous", "List tasks");
+		final String workLoad, final String title, final String description, final String link) {	
+		
+		super.signIn("manager1", "manager1");
+		
+		super.clickOnMenu("Manager", "List tasks");
 
 		super.checkColumnHasValue(recordIndex, 0, executionStart);
 		super.checkColumnHasValue(recordIndex, 1, executionEnd);
@@ -36,8 +41,10 @@ public class AnonymousTaskListTest extends AcmePlannerTest {
 		super.checkInputBoxHasValue("description", description);
 		super.checkInputBoxHasValue("executionStart", executionStart);
 		super.checkInputBoxHasValue("executionEnd", executionEnd);
-		super.checkInputBoxHasValue("workLoad", workLoad);
 		super.checkInputBoxHasValue("link", link);
+		
+		super.signOut();
+		
 	}
 
 }

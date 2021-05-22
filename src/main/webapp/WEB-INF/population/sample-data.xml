@@ -45,6 +45,7 @@
 		<property name="tasks">
 			<list>
 				<ref bean="task04" />
+				<ref bean="task08" />
 			</list>
 		</property>
 	</bean>
@@ -187,6 +188,14 @@
 	<property name="executionEnd" value="2021/08/26 21:00"></property>
 	<property name="description" value="Seventh task"></property>
 	<property name="isPrivate" value="false"/>
+	</bean>
+	
+	<bean id="task08" class="acme.entities.tasks.Task">
+	<property name="title" value="Task 08"></property>
+	<property name="executionStart" value="2021/05/10 14:05"></property>
+	<property name="executionEnd" value="2021/05/15 19:05"></property>
+	<property name="description" value="Eighth task"></property>
+	<property name="isPrivate" value="true"/>
 	</bean>
 	
 	<!-- CUSTOMISATION -->

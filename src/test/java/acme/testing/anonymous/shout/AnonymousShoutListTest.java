@@ -1,6 +1,5 @@
 package acme.testing.anonymous.shout;
 
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
@@ -13,10 +12,15 @@ public class AnonymousShoutListTest extends AcmePlannerTest {
 	
 	// Test cases ---------------------------------------
 	
-	@DisplayName("List the shouts that are not older than one month")
+	/*
+	 * @Feature: Anonymous can list the shouts that are not older than one month
+	 * @Violated constraints: None
+	 * @Results: List of shouts that are not older than one month
+	 */
+	
 	@ParameterizedTest
 	@CsvFileSource(resources = "/anonymous/shout/list.csv", encoding = "utf-8", numLinesToSkip = 1)
-	@Order(10)
+	@Order(20)
 	public void list(final int recordIndex, final String moment, final String author, final String text) {		
 		super.clickOnMenu("Anonymous", "List shouts");
 
