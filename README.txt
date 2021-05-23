@@ -8,11 +8,16 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-This is Acme-Planner. This project helps students to start working on a formal information system 
-project in Design & Testing II's subject.
+Acme-Planner Testing Project. This project helps students to perform functional tests on 
+the project Acme-Planner in Design & Testing II's subject. 
 
 - GitHub repository: https://github.com/danmarsua1/Testing-Acme-Planner-D03.git
 - GitHub release: https://github.com/danmarsua1/Testing-Acme-Planner-D03/releases/tag/v1.0
+
+## Clever-Cloud credentials (Testing Acme-Planner)
+
+- User: danmarsua1@alum.us.es
+- Password: danmarsua1
 
 !!!ATTENTION NOTES!!!
 1.Due to conflict with the Tomcat Manager App (usually <app_name>/manager) of the Clever-Cloud server, 
