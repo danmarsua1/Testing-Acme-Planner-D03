@@ -2,6 +2,7 @@
 package acme.features.usermanager.task;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -80,6 +81,10 @@ public class UsermanagerTaskUpdateService implements AbstractUpdateService<Userm
 		final String title = entity.getTitle();
 		final String description = entity.getDescription();
 		final String link = entity.getLink();
+		
+		final Date startDate = entity.getExecutionStart();
+		final Date endDate = entity.getExecutionEnd();
+		final Date present = new Date(System.currentTimeMillis());
 
 		if (customisation.isSpam(title)) {
 			errors.state(request, false, "title", "manager.task.error.spam");
@@ -90,9 +95,15 @@ public class UsermanagerTaskUpdateService implements AbstractUpdateService<Userm
 		if (customisation.isSpam(link)) {
 			errors.state(request, false, "link", "manager.task.error.spam");
 		}
-		if (entity.getExecutionStart().after(entity.getExecutionEnd())) {
+		if (startDate != null && endDate != null && startDate.after(endDate)) {
 			errors.state(request, false, "executionStart", "task.error.executionDate");
 			errors.state(request, false, "executionEnd", "task.error.executionDate");
+		}
+		if (startDate != null && present.after(startDate)) {
+			errors.state(request, false, "executionStart", "task.error.executionStart");
+		}
+		if (endDate != null && present.after(endDate)) {
+			errors.state(request, false, "executionEnd", "task.error.executionEnd");
 		}
 
 	}
