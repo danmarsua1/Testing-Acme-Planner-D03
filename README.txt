@@ -12,7 +12,7 @@ This is Acme-Planner. This project helps students to start working on a formal i
 project in Design & Testing II's subject.
 
 - GitHub repository: https://github.com/danmarsua1/Testing-Acme-Planner-D03.git
-- GitHub release: TODO
+- GitHub release: https://github.com/danmarsua1/Testing-Acme-Planner-D03/releases/tag/v1.0
 
 !!!ATTENTION NOTES!!!
 1.Due to conflict with the Tomcat Manager App (usually <app_name>/manager) of the Clever-Cloud server, 
