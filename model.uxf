@@ -299,8 +299,8 @@ Shout
 Task
 --
 + title: String {NotBlank,@Column(length = 80)}
-+ executionStart: Date {NotNull,Temporal(TIMESTAMP),Future}
-+ executionEnd: Date {NotNull,Temporal(TIMESTAMP),Future}
++ executionStart: Date {NotNull,Temporal(TIMESTAMP)}
++ executionEnd: Date {NotNull,Temporal(TIMESTAMP)}
 + / workLoad: int {NotNull}
 + description: String {NotBlank,@Column(length = 500)}
 + link: String {URL}
